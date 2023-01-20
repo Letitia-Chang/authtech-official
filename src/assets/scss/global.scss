@@ -1,0 +1,488 @@
+$theme-color: #ff6500;
+$theme-blue: #4e75ff;
+$theme-dark-gray: #4d4d4d;
+$theme-light-gray: #c0c0c0;
+
+/* Mixins */
+
+// position: absolute
+@mixin absolute($top, $left) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+
+@mixin absolute2($bottom, $right) {
+  position: absolute;
+  bottom: $bottom;
+  right: $right;
+}
+
+// alignment: justify-content | align-items
+@mixin alignment($justify, $align) {
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// (width, height)
+@mixin size($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+// offset-x | offset-y | blur-radius | spread-radius | color
+@mixin shadow($x, $y, $b, $s, $o) {
+  -webkit-box-shadow: $x $y $b $s rgba(0, 0, 0, $o);
+  box-shadow: $x $y $b $s rgba(0, 0, 0, $o);
+}
+
+// title(cn) on CoverImage
+@mixin cover-title-cn($color) {
+  font-weight: bold;
+  text-align: start;
+  @if ($color == "white") {
+    color: white;
+  } @else {
+    color: $theme-color;
+  }
+}
+
+// subtitle(en) on CoverImage
+@mixin cover-subtitle-en($color) {
+  background-color: transparent;
+  font-weight: bolder;
+
+  @if ($color == "white") {
+    color: white;
+    border: 1px solid white;
+  } @else {
+    color: $theme-color;
+    border: 1px solid $theme-color;
+    font-weight: bolder;
+  }
+}
+
+// (font-size, font-weight)
+@mixin set-font($size, $weight) {
+  font-size: $size;
+  font-weight: $weight;
+}
+
+// (font-size, font-weight, letter-spacing)
+@mixin set-font2($size, $weight, $space) {
+  font-size: $size;
+  font-weight: $weight;
+  letter-spacing: $space;
+}
+
+/* Text */
+// 大於 1920px 時，套用以下 css
+@media screen and (min-width: 1920px) {
+  .title-text {
+    @include set-font(64px, 900);
+    margin-bottom: 32px;
+  }
+
+  .title-text2 {
+    @include set-font(64px, 900);
+    margin-bottom: 35px;
+  }
+
+  .subtitle-text {
+    @include set-font(32px, 600);
+    margin-bottom: 11px;
+  }
+
+  .subtitle-text2 {
+    @include set-font(32px, 600);
+    margin-bottom: 5px;
+  }
+
+  .subtitle-text-en {
+    @include set-font(24px, 700);
+    padding: 10px 32px;
+  }
+
+  .theme-title {
+    @include set-font(24px, 600);
+    color: $theme-color;
+    margin-bottom: 12px;
+  }
+
+  .theme-title-lg {
+    @include set-font(28px, 600);
+    color: $theme-color;
+    margin-bottom: 12px;
+  }
+
+  .theme-text {
+    @include set-font(20px, 500);
+    color: $theme-dark-gray;
+    margin-bottom: 0px;
+  }
+
+  .theme-text-lg {
+    @include set-font(20px, 400);
+    color: $theme-dark-gray;
+    margin-bottom: 0px;
+  }
+
+  .page-container {
+    padding: 0px 96px;
+  }
+
+  .page-container2 {
+    padding: 0px 240px;
+  }
+}
+
+// 遊覽區域寬度範圍在1440px~1919px，則下方CSS描述會立即被套用：
+@media only screen and (min-width: 1440px) and (max-width: 1919px) {
+  .title-text {
+    @include set-font(40px, 900);
+    margin-bottom: 24px;
+  }
+
+  .title-text2 {
+    @include set-font(32px, 900);
+    margin-bottom: 16px;
+  }
+
+  .subtitle-text {
+    @include set-font(20px, 600);
+    margin-bottom: 11px;
+  }
+
+  .subtitle-text2 {
+    @include set-font(32px, 600);
+    margin-bottom: 5px;
+  }
+
+  .subtitle-text-en {
+    @include set-font(16px, 700);
+    padding: 10px 32px;
+  }
+
+  .theme-title {
+    @include set-font(18px, 600);
+    color: $theme-color;
+    margin-bottom: 12px;
+  }
+
+  .theme-title-lg {
+    @include set-font(18px, 600);
+    color: $theme-color;
+    margin-bottom: 12px;
+  }
+
+  .theme-text {
+    @include set-font(16px, 500);
+    color: $theme-dark-gray;
+    margin-bottom: 0px;
+  }
+
+  .theme-text-lg {
+    @include set-font(16px, 400);
+    color: $theme-dark-gray;
+    margin-bottom: 0px;
+  }
+
+  .page-container {
+    padding: 0px 64px;
+  }
+
+  .page-container2 {
+    padding: 0px 152px;
+  }
+}
+
+// 遊覽區域寬度範圍在1024px~1440px，則下方CSS描述會立即被套用：
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+  .title-text {
+    @include set-font(32px, 900);
+    margin-bottom: 24px;
+  }
+
+  .title-text2 {
+    @include set-font(28px, 900);
+    margin-bottom: 12px;
+  }
+
+  .subtitle-text {
+    @include set-font(18px, 600);
+    margin-bottom: 11px;
+  }
+
+  .subtitle-text2 {
+    @include set-font(20px, 600);
+    margin-bottom: 4px;
+  }
+
+  .subtitle-text-en {
+    @include set-font(14px, 700);
+    padding: 10px 24px;
+  }
+
+  .theme-title {
+    @include set-font(16px, 600);
+    color: $theme-color;
+    margin-bottom: 12px;
+  }
+
+  .theme-title-lg {
+    @include set-font(16px, 600);
+    color: $theme-color;
+    margin-bottom: 8px;
+  }
+
+  .theme-text {
+    @include set-font(14px, 400);
+    color: $theme-dark-gray;
+    margin-bottom: 0px;
+  }
+
+  .theme-text-lg {
+    @include set-font(14px, 400);
+    color: $theme-dark-gray;
+    margin-bottom: 0px;
+  }
+
+  .page-container {
+    padding: 0px 48px;
+  }
+
+  .page-container2 {
+    padding: 0px 111px;
+  }
+}
+
+// 遊覽區域寬度範圍在768px~1023px，則下方CSS描述會立即被套用：
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .title-text {
+    @include set-font(28px, 900);
+    margin-bottom: 12px;
+  }
+
+  .title-text2 {
+    @include set-font(20px, 900);
+    margin-bottom: 8px;
+  }
+
+  .subtitle-text {
+    @include set-font(16px, 600);
+    margin-bottom: 8px;
+  }
+
+  .subtitle-text2 {
+    @include set-font(20px, 600);
+    margin-bottom: 4px;
+  }
+
+  .subtitle-text-en {
+    @include set-font(12px, 700);
+    padding: 8px 30px;
+  }
+
+  .theme-title {
+    @include set-font(14px, 600);
+    color: $theme-color;
+    margin-bottom: 12px;
+  }
+
+  .theme-title-lg {
+    @include set-font(14px, 600);
+    color: $theme-color;
+    margin-bottom: 4px;
+  }
+
+  .theme-text {
+    @include set-font(14px, 400);
+    color: $theme-dark-gray;
+    margin-bottom: 0px;
+  }
+
+  .theme-text-lg {
+    @include set-font(12px, 400);
+    color: $theme-dark-gray;
+    margin-bottom: 0px;
+  }
+
+  .page-container {
+    padding: 0px 32px;
+  }
+
+  .page-container2 {
+    padding: 0px 32px;
+  }
+}
+
+// 遊覽區域寬度範圍在415px~767px，則下方CSS描述會立即被套用：
+@media only screen and (min-width: 415px) and (max-width: 767px) {
+  .title-text {
+    @include set-font(28px, 900);
+    margin-bottom: 12px;
+  }
+
+  .title-text2 {
+    @include set-font(24px, 900);
+    margin-bottom: 12px;
+  }
+
+  .subtitle-text {
+    @include set-font(16px, 600);
+    margin-bottom: 8px;
+  }
+
+  .subtitle-text2 {
+    @include set-font(16px, 600);
+    margin-bottom: 8px;
+  }
+
+  .subtitle-text-en {
+    @include set-font(14px, 700);
+    padding: 8px 85px;
+  }
+
+  .theme-title {
+    @include set-font(14px, 600);
+    color: $theme-color;
+    margin-bottom: 12px;
+  }
+
+  .theme-title-lg {
+    @include set-font(14px, 600);
+    color: $theme-color;
+    margin-bottom: 4px;
+  }
+
+  .theme-text {
+    @include set-font(14px, 400);
+    color: $theme-dark-gray;
+    margin-bottom: 0px;
+  }
+
+  .theme-text-lg {
+    @include set-font(14px, 400);
+    color: $theme-dark-gray;
+    margin-bottom: 0px;
+  }
+
+  .page-container {
+    padding: 0px 16px;
+  }
+
+  .page-container2 {
+    padding: 0px 16px;
+  }
+}
+
+// 遊覽區域寬度範圍小於415px，則下方CSS描述會立即被套用：
+@media only screen and (max-width: 414px) {
+  .title-text {
+    @include set-font(24px, 900);
+    margin-bottom: 16px;
+  }
+
+  .title-text2 {
+    @include set-font(24px, 900);
+    margin-bottom: 12px;
+  }
+
+  .subtitle-text {
+    @include set-font(14px, 600);
+    margin-bottom: 8px;
+  }
+
+  .subtitle-text2 {
+    @include set-font(16px, 600);
+    margin-bottom: 8px;
+  }
+
+  .subtitle-text-en {
+    @include set-font(14px, 700);
+    padding: 8px 85px;
+  }
+
+  .theme-title {
+    @include set-font(14px, 600);
+    color: $theme-color;
+    margin-bottom: 12px;
+  }
+
+  .theme-title-lg {
+    @include set-font(14px, 600);
+    color: $theme-color;
+    margin-bottom: 4px;
+  }
+
+  .theme-text {
+    @include set-font(14px, 400);
+    color: $theme-dark-gray;
+    margin-bottom: 0px;
+  }
+
+  .theme-text-lg {
+    @include set-font(14px, 400);
+    color: $theme-dark-gray;
+    margin-bottom: 0px;
+  }
+
+  .page-container {
+    padding: 0px 16px;
+  }
+
+  .page-container2 {
+    padding: 0px 16px;
+  }
+}
+
+/* Input */
+.textarea:focus,
+input:focus {
+  outline: none;
+}
+
+/* Extend */
+/* Buttons */
+%button-basic {
+  color: white;
+  border: none;
+  border-radius: 10px;
+  background-color: $theme-color;
+  @include shadow(0px, 4px, 4px, 2px, 0.25);
+}
+
+%button-alt {
+  border-radius: 5px;
+  border: 1px solid $theme-color;
+  background-color: transparent;
+  color: $theme-color;
+}
+
+/* Background Image */
+%background-image {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Alignment */
+%alignment1 {
+  justify-content: center;
+  align-items: center;
+}
+
+%alignment2 {
+  justify-content: space-between;
+  align-items: center;
+}
+
+%alignment3 {
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+%alignment4 {
+  justify-content: flex-start;
+  align-items: center;
+}

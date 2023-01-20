@@ -1,0 +1,25 @@
+// 大於 1920px 時，套用以下 css
+@media screen and (min-width: 1920px) {
+}
+
+// 遊覽區域寬度範圍在1440px~1919px，則下方CSS描述會立即被套用：
+@media only screen and (min-width: 1440px) and (max-width: 1919px) {
+}
+
+// 遊覽區域寬度範圍在1024px~1440px，則下方CSS描述會立即被套用：
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+}
+
+// 遊覽區域寬度範圍在768px~1023px，則下方CSS描述會立即被套用：
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+}
+
+// 遊覽區域寬度範圍在415px~767px，則下方CSS描述會立即被套用：
+@media only screen and (min-width: 415px) and (max-width: 767px) {
+}
+
+// 遊覽區域寬度範圍小於415px，則下方CSS描述會立即被套用：
+@media only screen and (max-width: 414px) {
+}
+
+// 其他固定CSS
